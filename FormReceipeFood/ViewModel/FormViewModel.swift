@@ -39,7 +39,7 @@ class FormViewModel {
         do {
             let jsonData = try JSONEncoder().encode(obj)
                 let jsonString = String(data: jsonData, encoding: .utf8)
-                print(jsonString)
+                print(jsonString) // Check Obj To Send API Here
         } catch {
             print("Error encoding data: \(error)")
         }
