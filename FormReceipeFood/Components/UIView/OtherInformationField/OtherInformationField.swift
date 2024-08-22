@@ -24,7 +24,7 @@ class OtherInformationField: UIView {
     @IBOutlet weak var inputTextField: PaddingLargeTextField!
     
     private func setupView() {
-        headerLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        headerLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         headerLabel.text = "อื่นๆ"
         subHeaderLabel.font = UIFont.systemFont(ofSize: 20)
         subHeaderLabel.text = "กรุณาระบุเพิ่มเติม"

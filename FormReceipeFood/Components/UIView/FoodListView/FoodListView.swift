@@ -55,28 +55,6 @@ class FoodListView: UIView{
     
     @IBOutlet weak var containerOtherView: OtherInformationField!
     
-  
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-        setupView()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        commonInit()
-        setupView()
-    }
-    
-    private func commonInit() {
-        // Load .xib file
-        let nib = UINib(nibName: "FoodListView", bundle: nil)
-        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
-        view.frame = self.bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.addSubview(view)
-    }
-    
     private func setupView() {
         
         containerHeaderView.layer.cornerRadius = 10
@@ -87,7 +65,7 @@ class FoodListView: UIView{
         outlineCircle.layer.borderWidth = 1.0
         outlineCircle.layer.borderColor = UIColor.gray.cgColor
         
-        headerLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        headerLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         inlineCircle.layer.cornerRadius = inlineCircle.layer.frame.height/2
         inlineCircle.backgroundColor = .white
         
@@ -112,6 +90,30 @@ class FoodListView: UIView{
         checkBtn.setTitle("", for: .normal)
         checkBtn.addTarget(self, action: #selector(otherTapped), for: .touchUpInside)
         checkImage.isHidden = true
+    }
+    
+    func changeLanguage() {
+        if Utils.shared.language == "th" {
+            headerLabel.text = self.food?.name.th
+            for (index,checkbox) in self.checkboxList.enumerated() {
+                checkbox.setLabelCheckbox = self.food?.options[index].name.th ?? ""
+            }
+            labelOtherCheckbox.text = "อื่นๆโปรดระบุ"
+            containerOtherView.headerLabel.text = "อื่นๆ"
+            containerOtherView.subHeaderLabel.text = "ระบุบางอย่างเช่น ของที่แพ้ไม่สามารถกินได้"
+            containerOtherView.inputLabel.text = "อธิบายรายละเอียด"
+            containerOtherView.inputTextField.placeholder = "สามารถระบุสิ่งที่ต้องการได้ที่นี่"
+        } else if Utils.shared.language == "en" {
+            headerLabel.text = self.food?.name.en
+            for (index,checkbox) in self.checkboxList.enumerated() {
+                checkbox.setLabelCheckbox = self.food?.options[index].name.en ?? ""
+            }
+            labelOtherCheckbox.text = "Other Description"
+            containerOtherView.headerLabel.text = "Dscription"
+            containerOtherView.inputLabel.text = "Explain details"
+            containerOtherView.subHeaderLabel.text = "Specify that something such as an allergy item can be eaten."
+            containerOtherView.inputTextField.placeholder = "You can specify what you want here."
+        }
     }
     
     private func setActionButton() {
@@ -203,5 +205,26 @@ class FoodListView: UIView{
         }
     }
     
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+        setupView()
+    }
+    
+    private func commonInit() {
+        // Load .xib file
+        let nib = UINib(nibName: "FoodListView", bundle: nil)
+        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
+        view.frame = self.bounds
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.addSubview(view)
+    }
 }
 

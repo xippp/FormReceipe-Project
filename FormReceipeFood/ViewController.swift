@@ -83,6 +83,7 @@ class ViewController: UIViewController {
         vm.dataCallBack = { [weak self] foods in
             // Setup Food List
             self?.setupFoodListView(foodList: foods)
+            self?.additionalView.countryField.setValue = foods.defaultLanguage
             if Utils.shared.language == "en" {
                 self?.enLangaLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
             } else if Utils.shared.language == "th" {
@@ -111,6 +112,15 @@ class ViewController: UIViewController {
             emailField.setLabel = "อีเมล"
             submitButton.setTitle("ส่งข้อมูล", for: .normal)
         }
+        nameField.updateLanguage()
+        lastnameField.updateLanguage()
+        emailField.updateLanguage()
+        
+        additionalView.changeLanguage()
+        additionalView.countryField.setValue = model.defaultLanguage
+        for food in foodRecipeList {
+            food.changeLanguage()
+        }
     }
     
     private func setupView() {
@@ -138,7 +148,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func changeLanguage(_ sender: Any) {
-        vm.getLanguage()
         if Utils.shared.language == "th" {
             Utils.shared.language = "en"
             enLangaLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
@@ -149,7 +158,7 @@ class ViewController: UIViewController {
             enLangaLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
             thLangLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         }
-        print(Utils.shared.language)
+        vm.getLanguage()
     }
     
     

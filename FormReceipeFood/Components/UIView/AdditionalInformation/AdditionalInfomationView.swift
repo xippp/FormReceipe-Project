@@ -75,6 +75,27 @@ class AdditionalInfomationView: UIView {
         }
     }
     
+    func changeLanguage() {
+        if Utils.shared.language == "th" {
+            checkLabel.text = "ข้อมูลเพิ่มเติม"
+            titleLabel.text = "ข้อมูล"
+            nameField.setLabel = "ชื่อ"
+            lastnameField.setLabel = "นามสกุล"
+            emailField.setLabel = "อีเมล"
+            countryField.setLabel = "ประเทศ"
+        } else if Utils.shared.language == "en" {
+            checkLabel.text = "Additional Information"
+            titleLabel.text = "Information"
+            nameField.setLabel = "Name"
+            lastnameField.setLabel = "Surname"
+            emailField.setLabel = "Email"
+            countryField.setLabel = "Country"
+        }
+        nameField.updateLanguage()
+        lastnameField.updateLanguage()
+        emailField.updateLanguage()
+    }
+    
     private func setupView() {
         roundCornerView.layer.cornerRadius = 10
         roundCornerView.layer.borderColor = UIColor.gray.cgColor
@@ -101,7 +122,6 @@ class AdditionalInfomationView: UIView {
         countryField.isRequired = false
         countryField.setLabel = "ประเทศ"
         countryField.isEnable = false
-        countryField.setValue = "Thai"
     }
     
     override init(frame: CGRect) {

@@ -30,7 +30,21 @@ class FieldTextView: UIView, UITextFieldDelegate {
     
     var setValue: String = "" {
         didSet {
-            inputField.text = setValue
+            if Utils.shared.language == "th" {
+                if setValue == "th" {
+                    inputField.text = "ไทย"
+                } else if setValue == "en" {
+                    inputField.text = "อังกฤษ"
+                }
+            } else if Utils.shared.language == "en" {
+                if setValue == "th" {
+                    inputField.text = "Thai"
+                } else if setValue == "en" {
+                    inputField.text = "English"
+                }
+            } else {
+                inputField.text = setValue
+            }
         }
     }
     
@@ -54,6 +68,14 @@ class FieldTextView: UIView, UITextFieldDelegate {
     
     @IBOutlet weak var alertMsg: UILabel!
     
+    
+    func updateLanguage() {
+        if Utils.shared.language == "th" {
+            inputField.placeholder = "กรุณากรอกข้อมูลที่นี่..."
+        } else if Utils.shared.language == "en" {
+            inputField.placeholder = "Please Input..."
+        }
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         isValidate = isValidateField()
@@ -94,7 +116,7 @@ class FieldTextView: UIView, UITextFieldDelegate {
         inputField.layer.borderWidth = 1.0
         inputField.layer.cornerRadius = 20
         inputField.layer.masksToBounds = true
-        inputField.placeholder = "Please Input Field!"
+        inputField.placeholder = "Please Input..."
         inputField.delegate = self
         // Setup AlertMsg Label
         alertMsg.textColor = .red
