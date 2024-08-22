@@ -68,6 +68,8 @@ class FieldTextView: UIView, UITextFieldDelegate {
                 isValidate = isValidEmail(inputField.text ?? "")
             }
             alertMsg.isHidden = isValidate
+        } else {
+            isValidate = true
         }
         return isValidate
     }
