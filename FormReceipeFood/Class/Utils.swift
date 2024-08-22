@@ -11,4 +11,5 @@ class Utils {
     static let shared = Utils()
     
     var uuid: String = ""
+    var language: String = ""
 }

@@ -12,11 +12,20 @@ class FormViewModel {
     
     var dataCallBack: ((RecipeInstruct) -> Void)?
     
+    var getLangaugeCallBack: ((RecipeInstruct) -> Void)?
     
+    var data: RecipeInstruct? = nil
+    
+    func getLanguage() {
+        guard let data = data else { return }
+        getLangaugeCallBack?(data)
+    }
     
     func getFoodData() {
         guard let data = getJsonFile.getJsonData(fileName: "FoodData") else { return  }
+        self.data = data
         Utils.shared.uuid = data.uuid
+        Utils.shared.language = data.defaultLanguage
         dataCallBack?(data)
     }
     
