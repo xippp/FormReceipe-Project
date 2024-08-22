@@ -108,17 +108,10 @@
     {
       "id": 6,
       "Name": {
-        "en": "",
-        "th": ""
+        "en": "Green Curry with Chicken",
+        "th": "แกงเขียวหวานไก่"
       },
       "options": [
-        {
-          "name": {
-            "en": "Green Curry with Chicken",
-            "th": "แกงเขียวหวานไก่"
-          },
-          "enable": true
-        },
         {
           "name": {
             "en": "Chicken meat",
