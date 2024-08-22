@@ -30,7 +30,8 @@ class FormViewModel {
                                                                            enable: false)],
                                                description: foodView.containerOtherView.getValueField))
         }
-        let submitFormModel = SubmitFormModel(mainInformation: mainInformation,
+        let submitFormModel = SubmitFormModel(uuid: Utils.shared.uuid,
+                                              mainInformation: mainInformation,
                                                additionalInformation: additionalInformation ?? AdditionalInformationModel(),
                                                rightRequests: foodRecipes)
         sendObjectJson(obj: submitFormModel)
