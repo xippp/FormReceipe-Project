@@ -12,6 +12,8 @@ import UIKit
 
 class FoodListView: UIView{
     
+    
+    
     var isExpanded: Bool = false
     
     var isCheckOther: Bool = false
@@ -190,6 +192,7 @@ class FoodListView: UIView{
             checkboxIngrediant.index = index
             checkboxIngrediant.onTappedCheck = { [weak self] (check,index) in
                     self?.food?.options[index].enable = check
+                print(self?.food)
             }
             checkboxIngrediant.onTappedHeader = {
                 checkboxIngrediant.resetCheckbox()

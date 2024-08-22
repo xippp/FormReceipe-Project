@@ -95,7 +95,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private func setupFoodListView(foodList: FoodRecipeModel) {
+    private func setupFoodListView(foodList: RecipeInstruct) {
         for (index,food) in foodList.rightRequests.enumerated(){
             let foodListView = FoodListView()
             foodListView.setupFood(food: food)

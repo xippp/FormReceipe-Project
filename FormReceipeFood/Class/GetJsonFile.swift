@@ -10,7 +10,7 @@ import Foundation
 class GetJsonFile {
     
 
-    func getJsonData(fileName: String) -> FoodRecipeModel? {
+    func getJsonData(fileName: String) -> RecipeInstruct? {
         guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
             print("File Not Found")
             return nil
@@ -19,7 +19,7 @@ class GetJsonFile {
         do {
             let data = try Data(contentsOf: url, options: .mappedIfSafe)
             let decoder = JSONDecoder()
-            let model = try decoder.decode(FoodRecipeModel.self, from: data)
+            let model = try decoder.decode(RecipeInstruct.self, from: data)
             return model
         } catch {
             print("Error Reading File \(error)")

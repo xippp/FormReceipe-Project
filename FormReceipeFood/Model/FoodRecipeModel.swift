@@ -1,5 +1,5 @@
 //
-//  FoodRecipeModel.swift
+//  RecipeInstruct.swift
 //  FormReceipeFood
 //
 //  Created by PP on 20/8/2567 BE.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FoodRecipeModel: Codable {
+struct RecipeInstruct: Codable {
     var id: Int
     var uuid: String
     var title: Title

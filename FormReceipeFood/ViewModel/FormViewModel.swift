@@ -10,7 +10,7 @@ class FormViewModel {
     
     let getJsonFile = GetJsonFile()
     
-    var dataCallBack: ((FoodRecipeModel) -> Void)?
+    var dataCallBack: ((RecipeInstruct) -> Void)?
     
     func getFoodData() {
         guard let data = getJsonFile.getJsonData(fileName: "FoodData") else { return  }
