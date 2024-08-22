@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FieldTextView" customModule="FormReceipeFood" customModuleProvider="target">
+            <connections>
+                <outlet property="alertMsg" destination="5Hr-tn-mVT" id="fGX-5E-PKJ"/>
+                <outlet property="inputField" destination="buZ-H2-oRd" id="olA-62-YA5"/>
+                <outlet property="labelField" destination="Dcg-DY-Khj" id="RM5-yo-8aK"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="732" height="272"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="092-js-bbJ">
+                    <rect key="frame" x="0.0" y="59" width="732" height="179"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dcg-DY-Khj">
+                            <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="98.666666666666671"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="buZ-H2-oRd" customClass="PaddedTextField" customModule="FormReceipeFood" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="108.66666666666666" width="732" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="tiA-6K-qCu"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Please Input Field !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hr-tn-mVT">
+                            <rect key="frame" x="0.0" y="158.66666666666666" width="143.33333333333334" height="20.333333333333343"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="buZ-H2-oRd" secondAttribute="trailing" id="1Jm-Vh-yvF"/>
+                        <constraint firstItem="buZ-H2-oRd" firstAttribute="leading" secondItem="092-js-bbJ" secondAttribute="leading" id="MZp-wa-AbI"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="092-js-bbJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="BKP-VH-onL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="092-js-bbJ" secondAttribute="trailing" id="D6j-9e-257"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="092-js-bbJ" secondAttribute="bottom" id="grL-tL-ozc"/>
+                <constraint firstItem="092-js-bbJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="kDD-b9-lTH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="389.3129770992366" y="-215.49295774647888"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
