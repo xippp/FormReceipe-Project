@@ -17,7 +17,7 @@ class AdditionalInfomationView: UIView {
     }
     
     var validateAdditionalForm: Bool{
-        return nameField.isValidate && lastnameField.isValidate && emailField.isValidate && countryField.isValidate
+        return nameField.isValidateField() && lastnameField.isValidateField() && emailField.isValidateField() && countryField.isValidateField()
     }
     
     @IBOutlet weak var roundCornerView: UIView!

@@ -56,15 +56,20 @@ class FieldTextView: UIView, UITextFieldDelegate {
     
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        isValidate = isValidateField()
+    }
+    
+    func isValidateField() -> Bool {
         if isRequired {
             switch typeField {
             case .text:
-                isValidate = isValidText(textField.text ?? "")
+                isValidate = isValidText(inputField.text ?? "")
             case .email:
-                isValidate = isValidEmail(textField.text ?? "")
+                isValidate = isValidEmail(inputField.text ?? "")
             }
             alertMsg.isHidden = isValidate
         }
+        return isValidate
     }
     
     private func isValidText(_ text: String) -> Bool {

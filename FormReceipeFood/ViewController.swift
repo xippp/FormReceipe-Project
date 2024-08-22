@@ -52,13 +52,13 @@ class ViewController: UIViewController {
         emailField.setLabel = "อีเมล"
         submitButton.setTitle("ส่งข้อมูล", for: .normal)
         submitButton.setTitleColor(.white, for: .normal)
-        submitButton.addTarget(self, action: #selector(postFormData), for: .touchUpInside)
+        submitButton.addTarget(self, action: #selector(checkValidationForm), for: .touchUpInside)
         // Add Tap Gesture เพื่อ EndEditing
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
     }
     
-    @objc func postFormData() {
+    func postFormData() {
         if additionalView.getStatusCheck {
             if self.isFormValidate {
                 let mainInformation = MainInformationModel(name: nameField.getValueField,
@@ -79,13 +79,13 @@ class ViewController: UIViewController {
         }
     }
     
-    private func checkValidationForm() {
+    @objc private func checkValidationForm() {
         if additionalView.getStatusCheck { // Check addtional Information
-            self.isFormValidate = nameField.isValidate && lastnameField.isValidate && emailField.isValidate && additionalView.validateAdditionalForm
+            self.isFormValidate = nameField.isValidateField() && lastnameField.isValidateField() && emailField.isValidateField() && additionalView.validateAdditionalForm
         } else { // Uncheck addtional Information
-            self.isFormValidate = nameField.isValidate && lastnameField.isValidate && emailField.isValidate
+            self.isFormValidate = nameField.isValidateField() && lastnameField.isValidateField() && emailField.isValidateField()
         }
-        
+        postFormData()
     }
     
     private func setupVM() {
