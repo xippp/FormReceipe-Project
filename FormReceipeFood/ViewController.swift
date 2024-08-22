@@ -11,6 +11,8 @@ class ViewController: UIViewController {
 
     let vm = FormViewModel()
     
+    var foodRecipeList: [FoodListView] = []
+    
     var isFormValidate: Bool = false
     
     @IBOutlet weak var personalTitle: UILabel!
@@ -66,7 +68,8 @@ class ViewController: UIViewController {
                                                            email: emailField.getValueField)
                 let additionalInfomation = additionalView.getFieldData()
                 vm.prepareSubmitForm(mainInformation: mainInformation,
-                                     additionalInformation: additionalInfomation)
+                                     additionalInformation: additionalInfomation,
+                                     foodListView: self.foodRecipeList)
             }
         } else {
             if self.isFormValidate {
@@ -74,7 +77,8 @@ class ViewController: UIViewController {
                                                            lastname: lastnameField.getValueField,
                                                            email: emailField.getValueField)
                 vm.prepareSubmitForm(mainInformation: mainInformation,
-                                     additionalInformation: AdditionalInformationModel())
+                                     additionalInformation: AdditionalInformationModel(),
+                                     foodListView: self.foodRecipeList)
             }
         }
     }
@@ -98,6 +102,7 @@ class ViewController: UIViewController {
     private func setupFoodListView(foodList: RecipeInstruct) {
         for (index,food) in foodList.rightRequests.enumerated(){
             let foodListView = FoodListView()
+            self.foodRecipeList.append(foodListView)
             foodListView.setupFood(food: food)
             foodListView.indexFood = index
             foodStackView.addArrangedSubview(foodListView)

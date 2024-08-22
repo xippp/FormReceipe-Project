@@ -10,6 +10,9 @@ import UIKit
 
 class OtherInformationField: UIView {
     
+    var getValueField: String? {
+        return inputTextField.text ?? ""
+    }
     
     @IBOutlet weak var headerLabel: UILabel!
     

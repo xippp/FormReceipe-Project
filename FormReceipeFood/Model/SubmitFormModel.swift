@@ -7,33 +7,31 @@
 
 import Foundation
 
-struct MainInformationModel {
+struct SubmitFormModel: Codable {
+    var uuid: String = ""
+    var mainInformation: MainInformationModel
+    var additionalInformation: AdditionalInformationModel
+    var rightRequests: [FoodRecipeModel]
+}
+
+struct MainInformationModel: Codable {
     var name: String = ""
     var lastname: String = ""
     var email: String = ""
 
 }
 
-struct AdditionalInformationModel {
+struct AdditionalInformationModel: Codable {
     var name: String = ""
     var lastname: String = ""
     var email: String = ""
     var country: String = ""
 }
 
-struct FoodRecipeModel {
+struct FoodRecipeModel: Codable {
     var id: Int = 0
-    var name: FoodName
-    var options: [OptionRecipe]
-    var description: String = ""
+    var name: Name
+    var options: [OptionFood]
+    var description: String?
 }
 
-struct FoodName {
-    var en: String = ""
-    var th: String = ""
-}
-
-struct OptionRecipe {
-    var name: FoodName
-    var enable: Bool = false
-}

@@ -20,6 +20,8 @@ class FoodListView: UIView{
     
     var food: FoodList?
     
+    var additionalDesc: String = ""
+    
     var indexFood: Int = 0
     
     var checkboxList: [CheckBoxViaTextView] = []
@@ -191,8 +193,7 @@ class FoodListView: UIView{
             checkboxIngrediant.setupCheckBox(check: option.enable)
             checkboxIngrediant.index = index
             checkboxIngrediant.onTappedCheck = { [weak self] (check,index) in
-                    self?.food?.options[index].enable = check
-                print(self?.food)
+                self?.food?.options[index].enable = check
             }
             checkboxIngrediant.onTappedHeader = {
                 checkboxIngrediant.resetCheckbox()
