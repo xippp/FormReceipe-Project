@@ -14,6 +14,7 @@ class OtherInformationField: UIView {
         return inputTextField.text ?? ""
     }
     
+    
     @IBOutlet weak var headerLabel: UILabel!
     
     @IBOutlet weak var subHeaderLabel: UILabel!
@@ -36,6 +37,10 @@ class OtherInformationField: UIView {
         inputTextField.layer.borderColor = UIColor.gray.cgColor
         inputTextField.placeholder = "Please Input your other information..."
         
+    }
+    
+    func resetTextField() {
+        inputTextField.text = ""
     }
     
     override init(frame: CGRect) {

@@ -136,6 +136,7 @@ class FoodListView: UIView{
     
     private func resetOtherCheckbox() {
         self.isCheckOther = false
+        containerOtherView.resetTextField()
         checkBoxOtherView.backgroundColor = .white
         checkImage.isHidden = true
         self.containerOtherView.isHidden = true
