@@ -65,8 +65,7 @@ class AdditionalInfomationView: UIView {
         emailField.setLabel = "อีเมล"
         countryField.isRequired = false
         countryField.setLabel = "ประเทศ"
-        
-        
+        countryField.isEnable = false
     }
     
     @objc private func checkStatus() {

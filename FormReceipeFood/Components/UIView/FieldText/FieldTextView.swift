@@ -20,6 +20,20 @@ class FieldTextView: UIView, UITextFieldDelegate {
     
     var isValidate: Bool = false
     
+    var isEnable: Bool = true {
+        didSet {
+            inputField.isEnabled = isEnable
+            inputField.backgroundColor = UIColor.lightGray
+            inputField.textColor = UIColor.darkGray
+        }
+    }
+    
+    var setValue: String = "" {
+        didSet {
+            inputField.text = setValue
+        }
+    }
+    
     var setLabel: String = "" {
         didSet {
             if isRequired {
@@ -38,13 +52,15 @@ class FieldTextView: UIView, UITextFieldDelegate {
     
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        switch typeField {
-        case .text:
-            isValidate = isValidText(textField.text ?? "")
-        case .email:
-            isValidate = isValidEmail(textField.text ?? "")
+        if isRequired {
+            switch typeField {
+            case .text:
+                isValidate = isValidText(textField.text ?? "")
+            case .email:
+                isValidate = isValidEmail(textField.text ?? "")
+            }
+            alertMsg.isHidden = isValidate
         }
-        alertMsg.isHidden = isValidate
     }
     
     private func isValidText(_ text: String) -> Bool {
