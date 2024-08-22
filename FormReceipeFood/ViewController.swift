@@ -44,6 +44,9 @@ class ViewController: UIViewController {
         lastnameField.setLabel = "นามสกุล"
         emailField.isRequired = true
         emailField.setLabel = "อีเมล"
+        // Add Tap Gesture เพื่อ EndEditing
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
     }
     
     private func setupVM() {
@@ -60,6 +63,10 @@ class ViewController: UIViewController {
             foodListView.indexFood = index
             foodStackView.addArrangedSubview(foodListView)
         }
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
 }

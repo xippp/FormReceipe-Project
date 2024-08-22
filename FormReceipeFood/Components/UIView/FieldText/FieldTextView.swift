@@ -7,9 +7,18 @@
 
 import UIKit
 @IBDesignable
-class FieldTextView: UIView {
+class FieldTextView: UIView, UITextFieldDelegate {
+    
+    enum TypeField {
+        case text
+        case email
+    }
+    
+    var typeField: TypeField = .text
     
     var isRequired: Bool = false
+    
+    var isValidate: Bool = false
     
     var setLabel: String = "" {
         didSet {
@@ -27,17 +36,25 @@ class FieldTextView: UIView {
     
     @IBOutlet weak var alertMsg: UILabel!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-        setupView()
-        
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch typeField {
+        case .text:
+            isValidate = isValidText(textField.text ?? "")
+        case .email:
+            isValidate = isValidEmail(textField.text ?? "")
+        }
+        alertMsg.isHidden = isValidate
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        commonInit()
-        setupView()
+    private func isValidText(_ text: String) -> Bool {
+        return !text.isEmpty
+    }
+    
+    private func isValidEmail(_ text: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: text)
     }
     
     private func setupView() {
@@ -51,6 +68,7 @@ class FieldTextView: UIView {
         inputField.layer.cornerRadius = 20
         inputField.layer.masksToBounds = true
         inputField.placeholder = "Please Input Field!"
+        inputField.delegate = self
         // Setup AlertMsg Label
         alertMsg.textColor = .red
         alertMsg.isHidden = true
@@ -65,4 +83,22 @@ class FieldTextView: UIView {
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
     }
+    
+    
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+        setupView()
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+        setupView()
+    }
+    
+    
 }
