@@ -44,6 +44,10 @@ class FieldTextView: UIView, UITextFieldDelegate {
         }
     }
     
+    var getValueField: String {
+        return inputField.text ?? ""
+    }
+    
     @IBOutlet weak var labelField: UILabel!
     
     @IBOutlet weak var inputField: PaddedTextField!

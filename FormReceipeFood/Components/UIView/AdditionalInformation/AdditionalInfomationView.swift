@@ -12,6 +12,14 @@ class AdditionalInfomationView: UIView {
     
     var statusCheck: Bool = false
     
+    var getStatusCheck: Bool {
+        return statusCheck
+    }
+    
+    var validateAdditionalForm: Bool{
+        return nameField.isValidate && lastnameField.isValidate && emailField.isValidate && countryField.isValidate
+    }
+    
     @IBOutlet weak var roundCornerView: UIView!
     
     @IBOutlet weak var containStackView: UIStackView!
@@ -39,7 +47,33 @@ class AdditionalInfomationView: UIView {
     @IBOutlet weak var emailField: FieldTextView!
     
     @IBOutlet weak var countryField: FieldTextView!
+
+    func getFieldData() -> AdditionalInformationModel {
+        let model = AdditionalInformationModel(name: nameField.getValueField,
+                                               lastname: lastnameField.getValueField,
+                                               email: emailField.getValueField,
+                                               country: countryField.getValueField)
+        return model
+    }
     
+    @objc private func checkStatus() {
+
+        statusCheck.toggle()
+        if statusCheck {
+            checkImage.isHidden = false
+            checkboxView.backgroundColor = .red
+            additionalView.isHidden = false
+            underLine.isHidden = false
+        } else {
+            checkImage.isHidden = true
+            checkboxView.backgroundColor = .white
+            additionalView.isHidden = true
+            underLine.isHidden = true
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.containStackView.layoutIfNeeded()
+        }
+    }
     
     private func setupView() {
         roundCornerView.layer.cornerRadius = 10
@@ -63,28 +97,11 @@ class AdditionalInfomationView: UIView {
         lastnameField.setLabel = "นามสกุล"
         emailField.isRequired = true
         emailField.setLabel = "อีเมล"
+        emailField.typeField = .email
         countryField.isRequired = false
         countryField.setLabel = "ประเทศ"
         countryField.isEnable = false
-    }
-    
-    @objc private func checkStatus() {
-
-        statusCheck.toggle()
-        if statusCheck {
-            checkImage.isHidden = false
-            checkboxView.backgroundColor = .red
-            additionalView.isHidden = false
-            underLine.isHidden = false
-        } else {
-            checkImage.isHidden = true
-            checkboxView.backgroundColor = .white
-            additionalView.isHidden = true
-            underLine.isHidden = true
-        }
-        UIView.animate(withDuration: 0.3) {
-            self.containStackView.layoutIfNeeded()
-        }
+        countryField.setValue = "Thai"
     }
     
     override init(frame: CGRect) {

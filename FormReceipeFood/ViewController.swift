@@ -11,6 +11,8 @@ class ViewController: UIViewController {
 
     let vm = FormViewModel()
     
+    var isFormValidate: Bool = false
+    
     @IBOutlet weak var personalTitle: UILabel!
     
     @IBOutlet weak var nameField: FieldTextView!
@@ -46,6 +48,7 @@ class ViewController: UIViewController {
         lastnameField.isRequired = true
         lastnameField.setLabel = "นามสกุล"
         emailField.isRequired = true
+        emailField.typeField = .email
         emailField.setLabel = "อีเมล"
         submitButton.setTitle("ส่งข้อมูล", for: .normal)
         submitButton.setTitleColor(.white, for: .normal)
@@ -56,6 +59,32 @@ class ViewController: UIViewController {
     }
     
     @objc func postFormData() {
+        if additionalView.getStatusCheck {
+            if self.isFormValidate {
+                let mainInformation = MainInformationModel(name: nameField.getValueField,
+                                                           lastname: lastnameField.getValueField,
+                                                           email: emailField.getValueField)
+                let additionalInfomation = additionalView.getFieldData()
+                vm.prepareSubmitForm(mainInformation: mainInformation,
+                                     additionalInformation: additionalInfomation)
+            }
+        } else {
+            if self.isFormValidate {
+                let mainInformation = MainInformationModel(name: nameField.getValueField,
+                                                           lastname: lastnameField.getValueField,
+                                                           email: emailField.getValueField)
+                vm.prepareSubmitForm(mainInformation: mainInformation,
+                                     additionalInformation: AdditionalInformationModel())
+            }
+        }
+    }
+    
+    private func checkValidationForm() {
+        if additionalView.getStatusCheck { // Check addtional Information
+            self.isFormValidate = nameField.isValidate && lastnameField.isValidate && emailField.isValidate && additionalView.validateAdditionalForm
+        } else { // Uncheck addtional Information
+            self.isFormValidate = nameField.isValidate && lastnameField.isValidate && emailField.isValidate
+        }
         
     }
     
@@ -77,6 +106,7 @@ class ViewController: UIViewController {
     
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
+        checkValidationForm()
     }
     
 }

@@ -16,5 +16,9 @@ class FormViewModel {
         guard let data = getJsonFile.getJsonData(fileName: "FoodData") else { return  }
         dataCallBack?(data)
     }
+    
+    func prepareSubmitForm(mainInformation: MainInformationModel, additionalInformation: AdditionalInformationModel?) {
+        print("Main Information Model is \(mainInformation)\nAdditional Information Model is \(additionalInformation)")
+    }
 
 }
