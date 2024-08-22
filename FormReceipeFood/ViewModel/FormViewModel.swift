@@ -16,6 +16,7 @@ class FormViewModel {
     
     func getFoodData() {
         guard let data = getJsonFile.getJsonData(fileName: "FoodData") else { return  }
+        Utils.shared.uuid = data.uuid
         dataCallBack?(data)
     }
     

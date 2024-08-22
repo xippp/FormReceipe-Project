@@ -27,6 +27,7 @@
 		639336872C750DA200C33DFD /* OtherInformationField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639336862C750DA200C33DFD /* OtherInformationField.swift */; };
 		639336892C7513F100C33DFD /* PaddingLargeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639336882C7513F000C33DFD /* PaddingLargeTextField.swift */; };
 		639632FD2C77603000E54FC7 /* SubmitFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639632FC2C77603000E54FC7 /* SubmitFormModel.swift */; };
+		639632FF2C77A84F00E54FC7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639632FE2C77A84F00E54FC7 /* Utils.swift */; };
 		63A6A5832C76279900916ECB /* GetJsonFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A6A5822C76279900916ECB /* GetJsonFile.swift */; };
 		63A6A5872C7634B000916ECB /* FoodData.json in Resources */ = {isa = PBXBuildFile; fileRef = 63A6A5862C7634B000916ECB /* FoodData.json */; };
 		63A6A58C2C763F8200916ECB /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A6A58B2C763F8200916ECB /* FormViewModel.swift */; };
@@ -55,6 +56,7 @@
 		639336862C750DA200C33DFD /* OtherInformationField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherInformationField.swift; sourceTree = "<group>"; };
 		639336882C7513F000C33DFD /* PaddingLargeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLargeTextField.swift; sourceTree = "<group>"; };
 		639632FC2C77603000E54FC7 /* SubmitFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitFormModel.swift; sourceTree = "<group>"; };
+		639632FE2C77A84F00E54FC7 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		63A6A5822C76279900916ECB /* GetJsonFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetJsonFile.swift; sourceTree = "<group>"; };
 		63A6A5862C7634B000916ECB /* FoodData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FoodData.json; sourceTree = "<group>"; };
 		63A6A58B2C763F8200916ECB /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				639336882C7513F000C33DFD /* PaddingLargeTextField.swift */,
 				6381BF362C74BF61001867F1 /* PaddingTextField.swift */,
 				63A6A5822C76279900916ECB /* GetJsonFile.swift */,
+				639632FE2C77A84F00E54FC7 /* Utils.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				639336822C75035D00C33DFD /* CheckBoxViaTextView.swift in Sources */,
 				6381BF202C74B4C5001867F1 /* ViewController.swift in Sources */,
 				6393367D2C75028100C33DFD /* FoodRecipeModel.swift in Sources */,
+				639632FF2C77A84F00E54FC7 /* Utils.swift in Sources */,
 				6381BF372C74BF61001867F1 /* PaddingTextField.swift in Sources */,
 				6393367A2C74F2AC00C33DFD /* FoodListView.swift in Sources */,
 				63A6A5832C76279900916ECB /* GetJsonFile.swift in Sources */,
