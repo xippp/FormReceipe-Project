@@ -59,20 +59,22 @@ class AdditionalInfomationView: UIView {
     @objc private func checkStatus() {
 
         statusCheck.toggle()
-        if statusCheck {
-            checkImage.isHidden = false
-            checkboxView.backgroundColor = .red
-            additionalView.isHidden = false
-            underLine.isHidden = false
-        } else {
-            checkImage.isHidden = true
-            checkboxView.backgroundColor = .white
-            additionalView.isHidden = true
-            underLine.isHidden = true
-        }
         UIView.animate(withDuration: 0.3) {
+            if self.statusCheck {
+                self.checkImage.isHidden = false
+                self.checkboxView.backgroundColor = .red
+                self.additionalView.isHidden = false
+                self.underLine.isHidden = false
+            } else {
+                self.checkImage.isHidden = true
+                self.checkboxView.backgroundColor = .white
+                self.additionalView.isHidden = true
+                self.underLine.isHidden = true
+            }
             self.containStackView.layoutIfNeeded()
         }
+       
+
     }
     
     func changeLanguage() {
