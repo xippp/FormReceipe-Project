@@ -49,34 +49,36 @@ class ViewController: UIViewController {
 
     func postFormData() {
         if additionalView.getStatusCheck {
-            if self.isFormValidate {
-                let mainInformation = MainInformationModel(name: nameField.getValueField,
+            let mainInformation = MainInformationModel(name: nameField.getValueField,
                                                            lastname: lastnameField.getValueField,
                                                            email: emailField.getValueField)
-                let additionalInfomation = additionalView.getFieldData()
-                vm.prepareSubmitForm(mainInformation: mainInformation,
+            let additionalInfomation = additionalView.getFieldData()
+            vm.prepareSubmitForm(mainInformation: mainInformation,
                                      additionalInformation: additionalInfomation,
                                      foodListView: self.foodRecipeList)
-            }
         } else {
-            if self.isFormValidate {
-                let mainInformation = MainInformationModel(name: nameField.getValueField,
+            let mainInformation = MainInformationModel(name: nameField.getValueField,
                                                            lastname: lastnameField.getValueField,
                                                            email: emailField.getValueField)
-                vm.prepareSubmitForm(mainInformation: mainInformation,
+            vm.prepareSubmitForm(mainInformation: mainInformation,
                                      additionalInformation: AdditionalInformationModel(),
                                      foodListView: self.foodRecipeList)
-            }
         }
     }
     
-    @objc private func checkValidationForm() {
+    private func checkValidationForm() {
         if additionalView.getStatusCheck { // Check addtional Information
             self.isFormValidate = nameField.isValidateField() && lastnameField.isValidateField() && emailField.isValidateField() && additionalView.validateAdditionalForm
         } else { // Uncheck addtional Information
             self.isFormValidate = nameField.isValidateField() && lastnameField.isValidateField() && emailField.isValidateField()
         }
-        postFormData()
+    }
+    
+    @objc private func submitAction() {
+        checkValidationForm()
+        if self.isFormValidate {
+            postFormData()
+        }
     }
     
     private func setupVM() {
@@ -131,7 +133,7 @@ class ViewController: UIViewController {
         emailField.isRequired = true
         emailField.typeField = .email
         submitButton.setTitleColor(.white, for: .normal)
-        submitButton.addTarget(self, action: #selector(checkValidationForm), for: .touchUpInside)
+        submitButton.addTarget(self, action: #selector(submitAction), for: .touchUpInside)
         // Add Tap Gesture เพื่อ EndEditing
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
