@@ -26,7 +26,7 @@ class OtherInformationField: UIView {
     private func setupView() {
         headerLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         headerLabel.text = "อื่นๆ"
-        subHeaderLabel.font = UIFont.systemFont(ofSize: 20)
+        subHeaderLabel.font = UIFont.systemFont(ofSize: 16)
         subHeaderLabel.text = "กรุณาระบุเพิ่มเติม"
         inputLabel.font = UIFont.systemFont(ofSize: 14)
         inputLabel.text = "อธิบายรายละเอียด"
