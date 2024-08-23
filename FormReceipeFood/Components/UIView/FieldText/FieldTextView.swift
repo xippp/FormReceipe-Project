@@ -76,8 +76,10 @@ class FieldTextView: UIView, UITextFieldDelegate {
     func updateLanguage() {
         if Utils.shared.language == "th" {
             inputField.placeholder = "กรุณากรอกข้อมูลที่นี่..."
+            alertMsg.text = "กรุณากรอกข้อมูล"
         } else if Utils.shared.language == "en" {
             inputField.placeholder = "Please Input..."
+            alertMsg.text = "Please Input Field"
         }
     }
     
