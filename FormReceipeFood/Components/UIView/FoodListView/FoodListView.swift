@@ -168,8 +168,7 @@ class FoodListView: UIView{
                     }
                     check.onTappedHeader?() // Closure Reset Checkbox Options
                 }
-                self.detailStack.isHidden = true  // ควรซ่อน detailStack ด้วย
-                // ซ่อน containerDetailView หลังจาก reset options
+                self.detailStack.isHidden = true
                 self.containerDetailView.alpha = 0
                 self.containerDetailView.isHidden = true
    
