@@ -93,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				63A6A58A2C763F7200916ECB /* ViewModel */,
-				63A6A57D2C760A6600916ECB /* Data */,
 				6393367B2C75025B00C33DFD /* Model */,
 				6381BF352C74BF4F001867F1 /* Class */,
 				6381BF2F2C74B7D8001867F1 /* Components */,
@@ -192,13 +191,6 @@
 				639336862C750DA200C33DFD /* OtherInformationField.swift */,
 			);
 			path = OtherInformationField;
-			sourceTree = "<group>";
-		};
-		63A6A57D2C760A6600916ECB /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		63A6A58A2C763F7200916ECB /* ViewModel */ = {
