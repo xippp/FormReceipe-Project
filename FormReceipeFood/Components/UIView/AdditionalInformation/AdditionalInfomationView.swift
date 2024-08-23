@@ -60,7 +60,7 @@ class AdditionalInfomationView: UIView {
 
         statusCheck.toggle()
         UIView.animate(withDuration: 0.3) {
-            if self.statusCheck {
+            if self.statusCheck { // Expanded
                 self.checkImage.isHidden = false
                 self.checkboxView.backgroundColor = .red
                 self.additionalView.isHidden = false
@@ -70,11 +70,16 @@ class AdditionalInfomationView: UIView {
                 self.checkboxView.backgroundColor = .white
                 self.additionalView.isHidden = true
                 self.underLine.isHidden = true
+                self.resetField() // Reset Field
             }
             self.containStackView.layoutIfNeeded()
         }
-       
-
+    }
+    
+    private func resetField() {
+        nameField.resetField()
+        lastnameField.resetField()
+        emailField.resetField()
     }
     
     func changeLanguage() {

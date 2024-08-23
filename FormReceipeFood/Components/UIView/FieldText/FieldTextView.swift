@@ -62,12 +62,16 @@ class FieldTextView: UIView, UITextFieldDelegate {
         return inputField.text ?? ""
     }
     
+    
     @IBOutlet weak var labelField: UILabel!
     
     @IBOutlet weak var inputField: PaddedTextField!
     
     @IBOutlet weak var alertMsg: UILabel!
     
+    func resetField() {
+        inputField.text = ""
+    }
     
     func updateLanguage() {
         if Utils.shared.language == "th" {
